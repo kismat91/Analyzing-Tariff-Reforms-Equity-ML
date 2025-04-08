@@ -28,15 +28,16 @@ plt.show()
 #-------------------------------------------------------------
 #-------------------------------------------------------------
 
-value_columns = ["Domestic", "Commercial", "Medium Industries", "Large Industries", "Extra Large"]
-df[value_columns] = df[value_columns].replace({",": ""}, regex=True).apply(pd.to_numeric, errors='coerce')
+columns = ["Domestic", "Commercial", "Medium Industries", "Large Industries", "Extra Large"]
+df[columns] = df[columns].replace({",": ""}, regex=True).apply(pd.to_numeric, errors='coerce')
 
 df2 = df.melt(id_vars=["Year", "Quarter"], var_name="Category", value_name="Values")
 
 plt.figure(figsize=(10, 5))
-plt.bar(df_melted["Category"], df_melted["Values"], color=['blue', 'orange', 'green', 'red', 'purple'])
+plt.bar(df2["Category"], df2["Values"], color=['blue', 'orange', 'green', 'red', 'purple'])
+
 plt.xlabel("Category")
 plt.ylabel("Values")
-plt.title("Distribution of Different Categories")
+plt.title("Distribution of Different Categories in Q3 2024")
 plt.xticks(rotation=45)
 plt.show()
