@@ -41,3 +41,30 @@ plt.ylabel("Values")
 plt.title("Distribution of Different Categories in Q3 2024")
 plt.xticks(rotation=45)
 plt.show()
+
+#-------------------------------------------------------------
+#-------------------------------------------------------------
+
+df = pd.read_csv(r'C:\Users\aroub\Desktop\Capstone Project\Book41.csv')
+
+df.columns = df.columns.str.strip()
+
+# Convert columns to numeric (ignoring errors to handle any non-numeric values)
+df["Year"] = pd.to_numeric(df["Year"], errors='coerce').astype('Int64')  # Convert Year to integer type
+df["Commercial and Public Services"] = pd.to_numeric(df["Commercial and Public Services"], errors='coerce')
+df["Residential"] = pd.to_numeric(df["Residential"], errors='coerce')
+df["Industry Sector"] = pd.to_numeric(df["Industry Sector"], errors='coerce')
+
+df = df.dropna()
+df = df.sort_values(by="Year")
+
+plt.figure(figsize=(10, 5))
+plt.plot(df["Year"], df["Commercial and Public Services"], marker='o', linestyle='-', label="Commercial and Public Services")
+plt.plot(df["Year"], df["Residential"], marker='s', linestyle='--', label="Residential")
+plt.plot(df["Year"], df["Industry Sector"], marker='^', linestyle='-', label="Industry Sector")
+
+plt.xlabel("Year")
+plt.ylabel("Value")
+plt.title("Commercial, Residential, and Industry Sector Trends")
+
+plt.show()
