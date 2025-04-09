@@ -28,9 +28,6 @@ plt.show()
 #-------------------------------------------------------------
 #-------------------------------------------------------------
 
-columns = ["Domestic", "Commercial", "Medium Industries", "Large Industries", "Extra Large"]
-df[columns] = df[columns].replace({",": ""}, regex=True).apply(pd.to_numeric, errors='coerce')
-
 df2 = df.melt(id_vars=["Year", "Quarter"], var_name="Category", value_name="Values")
 
 plt.figure(figsize=(10, 5))
@@ -49,8 +46,7 @@ df = pd.read_csv(r'C:\Users\aroub\Desktop\Capstone Project\Book41.csv')
 
 df.columns = df.columns.str.strip()
 
-# Convert columns to numeric (ignoring errors to handle any non-numeric values)
-df["Year"] = pd.to_numeric(df["Year"], errors='coerce').astype('Int64')  # Convert Year to integer type
+df["Year"] = pd.to_numeric(df["Year"], errors='coerce').astype('Int64')  
 df["Commercial and Public Services"] = pd.to_numeric(df["Commercial and Public Services"], errors='coerce')
 df["Residential"] = pd.to_numeric(df["Residential"], errors='coerce')
 df["Industry Sector"] = pd.to_numeric(df["Industry Sector"], errors='coerce')
