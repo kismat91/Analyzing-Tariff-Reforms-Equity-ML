@@ -11,8 +11,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, r2_score
 
 #%% loading datasets
-unps_energy_path = r"output_gsec10_1_all_years.csv"
-unps_fuel_path = r"output_gsec10_3_all_years.csv"
+unps_energy_path = r"..\Datasets\Uganda\output_gsec10_1_all_years.csv"
+unps_fuel_path = r"..\Datasets\Uganda\output_gsec10_3_all_years.csv"
 #%%
 unps_energy = pd.read_csv(unps_energy_path, low_memory=False)
 unps_fuel = pd.read_csv(unps_fuel_path, low_memory=False)

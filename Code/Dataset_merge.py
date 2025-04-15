@@ -162,9 +162,9 @@ df_2013_gsec10_3 = df_2013_gsec10_3[cols_gsec10_3]
 df_2013_gsec10_3['year'] = 2013
 
 # -------------------- Combine 2013 with 2015, 2018, & 2019 --------------------
-df_gsec10_1_final = pd.concat([df_2013_gsec10_1, df_gsec10_1], ignore_index=True)
-df_gsec10_3_final = pd.concat([df_2013_gsec10_3, df_gsec10_3], ignore_index=True)
-
+df_gsec10_1_final = pd.concat([df_2013_gsec10_1, df_gsec10_1_all], ignore_index=True)
+df_gsec10_3_final = pd.concat([df_2013_gsec10_3, df_gsec10_3_all], ignore_index=True)
+#%%
 # -------------------- Save the Final Combined Files --------------------
 df_gsec10_1_final.to_csv(r"..\Datasets\Uganda\output_gsec10_1_all_years.csv", index=False)
 df_gsec10_3_final.to_csv(r"..\Datasets\Uganda\output_gsec10_3_all_years.csv", index=False)
